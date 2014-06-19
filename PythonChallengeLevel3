@@ -1,0 +1,52 @@
+package box;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ *
+ * @author ville
+ */
+public class PythonChallengeLevel3 {
+
+    public void showThreeBodyGuards() {
+        String words = getString();
+        String pattern = "[a-z][A-Z]{3}([a-z])[A-Z]{3}[a-z]";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(words);
+        while (m.find()) {
+            System.out.println("Match: " + m.group());
+        }
+    }
+
+    private String getString() {
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("text.txt"));
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            while (line != null) {
+                sb.append(line);
+                line = br.readLine();
+            }
+            return sb.toString();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "";    }
+
+}
