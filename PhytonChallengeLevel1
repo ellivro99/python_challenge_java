@@ -1,0 +1,21 @@
+package box;
+
+/**
+ *
+ * @author ville
+ */
+public class PhytonChallengeLevel1 {
+
+    public void showConvertedWords(String words) {
+        int n = words.length();
+        for (int x = 0; x < n; x++) {
+            char c = words.charAt(x);
+            System.out.print((char) (c + 2));
+        }
+    }
+
+    public static void main(String[] args) {
+        PhytonChallengeLevel1 pcl1 = new PhytonChallengeLevel1();
+        pcl1.showConvertedWords("map");
+    }
+}
