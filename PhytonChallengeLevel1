@@ -10,11 +10,18 @@ public class PhytonChallengeLevel1 {
         int n = words.length();
         for (int x = 0; x < n; x++) {
             char c = words.charAt(x);
-            System.out.print((char) (c + 2));
+            if(c==' ' || c=='.' || c=='\''){
+                //dont convert
+            }else if(c=='z' || c=='y'){
+                c = (char)(c-24);
+            }else{
+                c = (char)(c+2);
+            }
+            System.out.print(c);
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         PhytonChallengeLevel1 pcl1 = new PhytonChallengeLevel1();
         pcl1.showConvertedWords("map");
     }
