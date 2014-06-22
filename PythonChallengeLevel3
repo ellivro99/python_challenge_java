@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,16 +35,16 @@ public class PythonChallengeLevel3 {
             }
             return sb.toString();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         } catch (IOException ex) {
-            Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(PythonChallengeLevel3.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
         }
-        return "";    }
-
+        return "";
+    }
 }
